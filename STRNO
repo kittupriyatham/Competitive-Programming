@@ -1,0 +1,39 @@
+import java.lang.Math;
+import java.util.Scanner;
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+while (t > 0)
+{
+	int n = sc.nextInt();
+	int k = sc.nextInt();
+    int ans = checkPrimeFactors(n,k);
+    System.out.println(ans);
+    t -= 1;
+}
+	}
+static int checkPrimeFactors(int n,int k)
+{
+    int count = 0;
+    while (n % 2 == 0)
+    {
+        count += 1;
+        n = n / 2;
+    }
+    for (int i=3;i<Math.sqrt(n);i=i+2)
+    {
+        while (n % i== 0)
+        {
+            count += 1;
+            n = n / i;
+        }
+    }
+    if (n > 2)
+        count += 1;
+    if (count >= k)
+        return 1;
+    else
+        return 0;
+}
+}
