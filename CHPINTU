@@ -1,0 +1,40 @@
+#include<stdio.h>
+#include<limits.h>
+int main()
+{
+	int t;
+	int i,j,k,l,o,q,r,u,v,w;
+	scanf("%d",&t);
+	for(i=0;i<t;i++)
+	{
+		int n,m;
+		scanf("%d %d",&n,&m);
+		int b[n];
+		int p[n];
+		int s[m+1];
+		for(j=0;j<n;j++)
+			scanf("%d",&b[j]);
+		for(k=0;k<n;k++)
+			scanf("%d",&p[k]);
+		for(o=0;o<m+1;o++)
+			s[o]=-1;
+		for(w=0;w<n;w++)
+		{
+			s[b[w]]=0;
+		}
+		for(u=0;u<n;u++)
+			s[b[u]]=s[b[u]]+p[u];
+		
+		int min=INT_MAX;
+		for(r=1;r<m+1;r++)
+		{
+		    				if(s[r]<min){
+
+			if(s[r]>=0)
+			
+					min=s[r];	
+			}
+		}
+		printf("%d\n",min);
+	}
+}
