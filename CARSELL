@@ -1,0 +1,13 @@
+# cook your dish here
+# cook your dish here
+t = int(input())
+while t > 0:
+    n = int(input())
+    p = list(map(int,input().split()))
+    p.sort(reverse=True)
+    total = 0
+    for i in range(n):
+        if (p[i]-i) > 0:
+            total = total + (p[i] - i)
+    print(total%1000000007)
+    t -= 1
