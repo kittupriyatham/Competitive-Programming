@@ -1,0 +1,71 @@
+#include <stdio.h>
+int main()
+{
+int t;
+scanf(" %d",&t);
+for(int z=0;z<t;z++)
+{
+    int n,k;
+    scanf(" %d ",&n);
+    int a[n];
+    int b[n];
+   
+    scanf(" %d",&k);
+    int flag=0;
+    for(int i=0;i<n;i++)
+  {
+        a[i]=0;
+        b[i]=0;
+  }
+ 
+ 
+ 
+    for(int j=0;j<n;j++)
+  {
+        scanf(" %d",&a[j]);
+  }
+ 
+ 
+  for(int l=n-1;l>=0;l--)
+ {  
+    if(k%a[l]!=0)
+    {
+     
+         b[l]=((k/a[l])+1);
+         flag=1;
+         break;
+    }
+ }
+     
+    if (flag==0)
+    {
+       
+       for(int o=n-1;o>=0;o--)
+       {
+           if(k%a[o]!=0)
+            {
+     
+         b[o]=((k/a[o])+1);
+         flag=1;
+         break;
+            }
+           b[o]=(k/a[o])-1;
+           k=k-(a[o]*b[o]);
+       }
+       
+    }
+   
+   
+    if(flag==1)
+      { printf("YES ");  
+        for(int p=0;p<n;p++)
+        printf("%d ",b[p]);
+          printf("\n");
+      }
+    if(flag==0)
+    {
+        printf("NO\n");
+    }
+}
+return 0;
+}
