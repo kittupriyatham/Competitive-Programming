@@ -1,0 +1,25 @@
+# cook your dish here
+def check_even_odd(l,n):
+    if n % 2 == 0:
+        i = 1
+        while i < n:
+            l[i].reverse()
+            i = i + 2
+    return l
+t = int(input())
+while t > 0:
+    n = int(input())
+    l = []
+    val = 1
+    for i in range(n):
+        tmp = []
+        for j in range(n):
+            tmp.append(val)
+            val = val + 1
+        l.append(tmp)
+    l = check_even_odd(l,n)
+    for i in range(n):
+        for j in range(n):
+            print(l[i][j],end=" ")
+        print("")
+    t = t - 1
