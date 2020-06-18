@@ -1,0 +1,74 @@
+import java.util.*;
+class Codechef
+{
+    static String check(int a[],int n)
+    {
+        ArrayList<Integer> change = new ArrayList<Integer>();
+        for(int i=0; i<n; i++ ) 
+	    {
+	        if (a[0]!=5)
+	        {
+	            return "NO";
+	        }
+            if (a[i]==5)
+            {
+                change.add(a[i]);
+            }
+            else if (a[i]==10)
+            {
+                if (change.contains(5))
+                {
+                    change.remove(new Integer(5));
+                    change.add(a[i]);
+                }
+                else 
+                {
+                    return "NO";
+                }
+            }
+            else if(a[i]==15)
+            {
+                if (change.contains(10))
+                {
+                    change.remove(new Integer(10));
+                    change.add(a[i]);
+                }
+                else if(change.contains(5))
+                {
+                    change.remove(new Integer(5));
+                    if(change.contains(5))
+                    {
+                        change.remove(new Integer(5));
+                        change.add(a[i]);
+                    }
+                    else 
+                    {
+                        return "NO";
+                    }
+                }
+                else 
+                {
+                    return "NO";
+                }
+            }
+        }
+        return "YES";
+    }
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc = new Scanner(System.in);
+		int t=sc.nextInt();
+		for (int i=0;i<t;i++)
+		{
+		    int n=sc.nextInt();
+		    int a[]=new int[n];
+		    for(int j=0; j<n; j++ ) 
+		    {
+                a[j] = sc.nextInt();
+            }
+            String checked=check(a,n);
+            System.out.println(checked);
+		}
+	}
+}
